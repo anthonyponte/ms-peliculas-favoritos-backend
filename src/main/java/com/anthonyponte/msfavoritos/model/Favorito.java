@@ -15,7 +15,7 @@ public class Favorito {
     private Long id;
 
     @Column(nullable = false)
-    private String usuario;
+    private String usuarioId;
 
     @Column(nullable = false)
     private Long idPelicula;
@@ -23,9 +23,9 @@ public class Favorito {
     public Favorito() {
     }
 
-    public Favorito(Long id, String usuario, Long idPelicula) {
+    public Favorito(Long id, String usuarioId, Long idPelicula) {
         this.id = id;
-        this.usuario = usuario;
+        this.usuarioId = usuarioId;
         this.idPelicula = idPelicula;
     }
 
@@ -37,12 +37,12 @@ public class Favorito {
         this.id = id;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUsuarioId(String usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public Long getIdPelicula() {
@@ -55,6 +55,6 @@ public class Favorito {
 
     @Override
     public String toString() {
-        return "Favorito [id=" + id + ", usuario=" + usuario + ", idPelicula=" + idPelicula + "]";
+        return "Favorito [id=" + id + ", usuarioId=" + usuarioId + ", idPelicula=" + idPelicula + "]";
     }
 }

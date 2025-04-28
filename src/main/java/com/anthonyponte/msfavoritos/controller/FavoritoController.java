@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.anthonyponte.msfavoritos.client.PeliculaFeignClient;
 import com.anthonyponte.msfavoritos.model.Favorito;
 import com.anthonyponte.msfavoritos.service.IFavoritoService;
 
@@ -21,6 +22,9 @@ public class FavoritoController {
     @Autowired
     private IFavoritoService service;
 
+    @Autowired
+    private PeliculaFeignClient client;
+
     @GetMapping("/{usuarioId}")
     public ResponseEntity<List<Favorito>> listarTodos(@PathVariable String usuarioId) {
         return ResponseEntity.ok(service.listarTodos(usuarioId));
@@ -28,7 +32,11 @@ public class FavoritoController {
 
     @PostMapping
     public ResponseEntity<Favorito> crear(@RequestBody Favorito favorito) {
-        return ResponseEntity.ok(service.guardar(favorito));
+        if (client.obtenerPeliculaPorId(favorito.getIdPelicula()) != null) {
+            return ResponseEntity.ok(service.guardar(favorito));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/{id}")

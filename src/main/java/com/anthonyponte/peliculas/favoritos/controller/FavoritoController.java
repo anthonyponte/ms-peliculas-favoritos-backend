@@ -17,7 +17,7 @@ import com.anthonyponte.peliculas.favoritos.model.Favorito;
 import com.anthonyponte.peliculas.favoritos.service.IFavoritoService;
 
 @RestController
-@RequestMapping("/favoritos")
+@RequestMapping("/api/v1/peliculas/favoritos")
 public class FavoritoController {
     @Autowired
     private IFavoritoService service;
@@ -25,9 +25,14 @@ public class FavoritoController {
     @Autowired
     private PeliculaFeignClient client;
 
+    @GetMapping
+    public ResponseEntity<List<Favorito>> listarTodos() {
+        return ResponseEntity.ok(service.listarTodos());
+    }
+
     @GetMapping("/{usuarioId}")
-    public ResponseEntity<List<Favorito>> listarTodos(@PathVariable String usuarioId) {
-        return ResponseEntity.ok(service.listarTodos(usuarioId));
+    public ResponseEntity<List<Favorito>> listarPorUsuarioId(@PathVariable String usuarioId) {
+        return ResponseEntity.ok(service.listarPorUsuarioId(usuarioId));
     }
 
     @PostMapping

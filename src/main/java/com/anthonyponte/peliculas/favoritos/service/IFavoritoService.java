@@ -8,7 +8,9 @@ import com.anthonyponte.peliculas.favoritos.model.Favorito;
 
 @Service
 public interface IFavoritoService {
-    public List<Favorito> listarTodos(String usuarioId);
+    public List<Favorito> listarTodos();
+
+    public List<Favorito> listarPorUsuarioId(String usuarioId);
 
     public Favorito guardar(Favorito favorito);
 

@@ -14,7 +14,12 @@ public class FavoritoServiceImpl implements IFavoritoService {
     private FavoritoRepository repository;
 
     @Override
-    public List<Favorito> listarTodos(String usuarioId) {
+    public List<Favorito> listarTodos() {
+        return repository.findAll();
+    }
+
+    @Override
+    public List<Favorito> listarPorUsuarioId(String usuarioId) {
         return repository.findByUsuarioId(usuarioId);
     }
 

@@ -1,12 +1,12 @@
-package com.anthonyponte.msfavoritos.service;
+package com.anthonyponte.peliculas.favoritos.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.anthonyponte.msfavoritos.model.Favorito;
-import com.anthonyponte.msfavoritos.repository.FavoritoRepository;
+import com.anthonyponte.peliculas.favoritos.model.Favorito;
+import com.anthonyponte.peliculas.favoritos.repository.FavoritoRepository;
 
 @Component
 public class FavoritoServiceImpl implements IFavoritoService {

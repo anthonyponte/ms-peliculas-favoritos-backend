@@ -1,4 +1,4 @@
-package com.anthonyponte.msfavoritos.controller;
+package com.anthonyponte.peliculas.favoritos.controller;
 
 import java.util.List;
 
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.anthonyponte.msfavoritos.client.PeliculaFeignClient;
-import com.anthonyponte.msfavoritos.model.Favorito;
-import com.anthonyponte.msfavoritos.service.IFavoritoService;
+import com.anthonyponte.peliculas.favoritos.client.PeliculaFeignClient;
+import com.anthonyponte.peliculas.favoritos.model.Favorito;
+import com.anthonyponte.peliculas.favoritos.service.IFavoritoService;
 
 @RestController
 @RequestMapping("/favoritos")

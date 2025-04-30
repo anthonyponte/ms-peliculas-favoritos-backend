@@ -1,4 +1,4 @@
-package com.anthonyponte.msfavoritos.model;
+package com.anthonyponte.peliculas.favoritos.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

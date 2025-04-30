@@ -1,10 +1,10 @@
-package com.anthonyponte.msfavoritos.service;
+package com.anthonyponte.peliculas.favoritos.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.anthonyponte.msfavoritos.model.Favorito;
+import com.anthonyponte.peliculas.favoritos.model.Favorito;
 
 @Service
 public interface IFavoritoService {

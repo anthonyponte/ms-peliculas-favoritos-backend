@@ -43,12 +43,8 @@ public class FavoritoServiceImpl implements FavoritoService {
 
     @Override
     public void eliminarFavorito(String usuarioId, Long peliculaId) {
-        FavoritoDTO favoritoDTO = new FavoritoDTO();
-        favoritoDTO.setUsuarioId(usuarioId);
-        favoritoDTO.setPeliculaId(peliculaId);
-
-        Favorito favorito = convertirAFavorito(favoritoDTO);
-        repository.delete(favorito);
+        Favorito favorito = repository.findByUsuarioIdAndPeliculaId(usuarioId, peliculaId);
+        repository.deleteById(favorito.getId());
 
         try {
             PeliculaRetrofitClient.getPeliculaService().actualizarPeliculaFavorito(peliculaId, false).execute();

@@ -1,10 +1,12 @@
-package com.anthonyponte.peliculas.favoritos.model;
+package com.anthonyponte.peliculas.favoritos.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,17 +19,9 @@ public class Favorito {
     @Column(nullable = false)
     private String usuarioId;
 
-    @Column(nullable = false)
-    private Long idPelicula;
-
-    public Favorito() {
-    }
-
-    public Favorito(Long id, String usuarioId, Long idPelicula) {
-        this.id = id;
-        this.usuarioId = usuarioId;
-        this.idPelicula = idPelicula;
-    }
+    @OneToOne
+    @JoinColumn(name = "id_pelicula", nullable = false)
+    private Pelicula pelicula;
 
     public Long getId() {
         return id;
@@ -45,16 +39,11 @@ public class Favorito {
         this.usuarioId = usuarioId;
     }
 
-    public Long getIdPelicula() {
-        return idPelicula;
+    public Pelicula getPelicula() {
+        return pelicula;
     }
 
-    public void setIdPelicula(Long idPelicula) {
-        this.idPelicula = idPelicula;
-    }
-
-    @Override
-    public String toString() {
-        return "Favorito [id=" + id + ", usuarioId=" + usuarioId + ", idPelicula=" + idPelicula + "]";
+    public void setPelicula(Pelicula pelicula) {
+        this.pelicula = pelicula;
     }
 }

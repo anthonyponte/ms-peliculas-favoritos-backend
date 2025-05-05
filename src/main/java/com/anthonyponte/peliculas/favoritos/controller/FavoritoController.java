@@ -16,7 +16,7 @@ import com.anthonyponte.peliculas.favoritos.dto.FavoritoDTO;
 import com.anthonyponte.peliculas.favoritos.service.FavoritoService;
 
 @RestController
-@RequestMapping("/api/v1/peliculas/favoritos")
+@RequestMapping("/api/v1/favoritos")
 public class FavoritoController {
     @Autowired
     private FavoritoService service;

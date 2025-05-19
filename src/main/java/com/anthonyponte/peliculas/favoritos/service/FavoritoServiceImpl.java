@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.anthonyponte.peliculas.favoritos.client.PeliculaRetrofitClient;
+import com.anthonyponte.peliculas.favoritos.client.PeliculaFeignClient;
 import com.anthonyponte.peliculas.favoritos.dto.FavoritoDTO;
 import com.anthonyponte.peliculas.favoritos.entity.Favorito;
 import com.anthonyponte.peliculas.favoritos.entity.Pelicula;
@@ -16,6 +16,9 @@ import com.anthonyponte.peliculas.favoritos.repository.FavoritoRepository;
 public class FavoritoServiceImpl implements FavoritoService {
     @Autowired
     private FavoritoRepository repository;
+
+    @Autowired
+    private PeliculaFeignClient client;
 
     @Override
     public List<FavoritoDTO> listarFavoritosPorUsuarioId(String usuarioId) {
@@ -34,11 +37,7 @@ public class FavoritoServiceImpl implements FavoritoService {
         Favorito favorito = convertirAFavorito(favoritoDTO);
         repository.save(favorito);
 
-        try {
-            PeliculaRetrofitClient.getPeliculaService().actualizarPeliculaFavorito(peliculaId, true).execute();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        client.actualizarPeliculaFavorito(peliculaId, true);
     }
 
     @Override
@@ -46,11 +45,7 @@ public class FavoritoServiceImpl implements FavoritoService {
         Favorito favorito = repository.findByUsuarioIdAndPeliculaId(usuarioId, peliculaId);
         repository.deleteById(favorito.getId());
 
-        try {
-            PeliculaRetrofitClient.getPeliculaService().actualizarPeliculaFavorito(peliculaId, false).execute();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        client.actualizarPeliculaFavorito(peliculaId, false);
     }
 
     private FavoritoDTO convertirAFavoritoDTO(Favorito favorito) {

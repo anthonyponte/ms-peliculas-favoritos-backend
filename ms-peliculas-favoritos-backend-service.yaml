@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-peliculas-favoritos-backend-service
+  namespace: default
+spec:
+  selector:
+    app: ms-peliculas-favoritos-backend
+  ports:
+  - protocol: TCP
+    port: 9094
+    targetPort: 9094
+    nodePort: 30094
+  type: NodePort

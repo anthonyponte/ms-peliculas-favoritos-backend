@@ -4,13 +4,13 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.anthonyponte.peliculas.favoritos.dto.FavoritoDTO;
+import com.anthonyponte.peliculas.favoritos.entity.Favorito;
 
 @Service
 public interface FavoritoService {
-    public List<FavoritoDTO> listarFavoritosPorUsuarioId(String usuarioId);
+    public List<Favorito> listarFavoritosPorIdUsuario(Long idUsuario);
 
-    public void crearFavorito(String usuarioId, Long peliculaId);
+    public Favorito crearFavorito(Favorito favorito);
 
-    public void eliminarFavorito(String usuarioId, Long peliculaId);
+    public void eliminarFavoritoPorId(Long id);
 }

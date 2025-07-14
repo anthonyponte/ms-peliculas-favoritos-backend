@@ -8,17 +8,20 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "favoritos")
-public class Favorito {
+@Table(name = "usuarios")
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private Long idUsuario;
+    private String username;
 
     @Column(nullable = false)
-    private Long idPelicula;
+    private String pwd;
+
+    @Column(nullable = false)
+    private int estado;
 
     public Long getId() {
         return id;
@@ -28,19 +31,27 @@ public class Favorito {
         this.id = id;
     }
 
-    public Long getIdPelicula() {
-        return idPelicula;
+    public String getUsername() {
+        return username;
     }
 
-    public void setIdPelicula(Long idPelicula) {
-        this.idPelicula = idPelicula;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public Long getIdUsuario() {
-        return idUsuario;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
     }
 }

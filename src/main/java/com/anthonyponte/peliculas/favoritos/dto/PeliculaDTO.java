@@ -1,17 +1,13 @@
 package com.anthonyponte.peliculas.favoritos.dto;
 
-import java.io.Serializable;
-
-public class PeliculaDTO implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class PeliculaDTO {
     private Long id;
     private String titulo;
     private String director;
-    private Long generoId;
+    private Long idGenero;
     private String generoDescripcion;
-    private Integer duracion;
+    private int duracion;
     private String fechaEstreno;
-    private boolean favorito;
 
     public Long getId() {
         return id;
@@ -37,12 +33,12 @@ public class PeliculaDTO implements Serializable {
         this.director = director;
     }
 
-    public Long getGeneroId() {
-        return generoId;
+    public Long getIdGenero() {
+        return idGenero;
     }
 
-    public void setGeneroId(Long generoId) {
-        this.generoId = generoId;
+    public void setIdGenero(Long idGenero) {
+        this.idGenero = idGenero;
     }
 
     public String getGeneroDescripcion() {
@@ -53,11 +49,11 @@ public class PeliculaDTO implements Serializable {
         this.generoDescripcion = generoDescripcion;
     }
 
-    public Integer getDuracion() {
+    public int getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(Integer duracion) {
+    public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
 
@@ -67,13 +63,5 @@ public class PeliculaDTO implements Serializable {
 
     public void setFechaEstreno(String fechaEstreno) {
         this.fechaEstreno = fechaEstreno;
-    }
-
-    public boolean isFavorito() {
-        return favorito;
-    }
-
-    public void setFavorito(boolean favorito) {
-        this.favorito = favorito;
     }
 }

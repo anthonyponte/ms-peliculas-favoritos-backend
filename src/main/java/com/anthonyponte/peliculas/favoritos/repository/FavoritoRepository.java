@@ -9,7 +9,5 @@ import com.anthonyponte.peliculas.favoritos.entity.Favorito;
 
 @Repository
 public interface FavoritoRepository extends JpaRepository<Favorito, Long> {
-    public List<Favorito> findAllByUsuarioId(String usuarioId);
-
-    public Favorito findByUsuarioIdAndPeliculaId(String usuarioId, Long peliculaId);
+    public List<Favorito> findAllByIdUsuario(Long idUsuario);
 }

@@ -8,10 +8,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication
-public class FavoritosApplication {
+public class MsFavoritosApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FavoritosApplication.class, args);
+		SpringApplication.run(MsFavoritosApplication.class, args);
 	}
 
 }

@@ -1,13 +1,9 @@
 package com.anthonyponte.peliculas.favoritos.dto;
 
-import java.io.Serializable;
-
-public class FavoritoDTO implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class FavoritoDTO {
     private Long id;
-    private String usuarioId;
-    private Long peliculaId;
-    private String peliculaTitulo;
+    private Long idUsuario;
+    private Long idPelicula;
 
     public Long getId() {
         return id;
@@ -17,27 +13,19 @@ public class FavoritoDTO implements Serializable {
         this.id = id;
     }
 
-    public String getUsuarioId() {
-        return usuarioId;
+    public Long getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setUsuarioId(String usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public Long getPeliculaId() {
-        return peliculaId;
+    public Long getIdPelicula() {
+        return idPelicula;
     }
 
-    public void setPeliculaId(Long peliculaId) {
-        this.peliculaId = peliculaId;
-    }
-
-    public String getPeliculaTitulo() {
-        return peliculaTitulo;
-    }
-
-    public void setPeliculaTitulo(String peliculaTitulo) {
-        this.peliculaTitulo = peliculaTitulo;
+    public void setIdPelicula(Long idPelicula) {
+        this.idPelicula = idPelicula;
     }
 }

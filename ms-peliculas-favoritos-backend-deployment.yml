@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: ms-peliculas-favoritos-backend
-          image: ms-peliculas-favoritos-backend:1.0.0
+          image: anthonyponte/ms-peliculas-favoritos-backend:1.0.0
           args:
             - "--spring.config.additional-location=file:/config/"
           ports:

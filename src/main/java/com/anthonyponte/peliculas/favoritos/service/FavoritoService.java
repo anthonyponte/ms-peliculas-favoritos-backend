@@ -13,4 +13,6 @@ public interface FavoritoService {
     public Favorito crearFavorito(Favorito favorito);
 
     public void eliminarFavoritoPorId(Long id);
+
+    public void eliminarFavoritoPorIdPelicula(Long idPelicula);
 }

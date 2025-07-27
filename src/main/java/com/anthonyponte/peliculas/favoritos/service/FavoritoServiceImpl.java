@@ -44,4 +44,10 @@ public class FavoritoServiceImpl implements FavoritoService {
 
         repository.delete(favorito);
     }
+
+    @Override
+    public void eliminarFavoritoPorIdPelicula(Long idPelicula) {
+        List<Favorito> listFavoritos = repository.findAllByIdPelicula(idPelicula);
+        repository.deleteAllInBatch(listFavoritos);
+    }
 }

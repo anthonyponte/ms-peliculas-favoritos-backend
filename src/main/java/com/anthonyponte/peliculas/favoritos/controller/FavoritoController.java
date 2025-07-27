@@ -49,7 +49,11 @@ public class FavoritoController {
 
     @DeleteMapping("/{id}")
     public void eliminarFavoritoPorId(@PathVariable Long id) {
-        System.out.println("eliminarFavoritoPorId: " + id);
         service.eliminarFavoritoPorId(id);
+    }
+
+    @DeleteMapping("/eliminar-todos/{idPelicula}")
+    public void eliminarFavoritoPorIdPelicula(@PathVariable Long idPelicula) {
+        service.eliminarFavoritoPorIdPelicula(idPelicula);
     }
 }
